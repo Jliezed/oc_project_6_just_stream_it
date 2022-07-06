@@ -6,6 +6,11 @@ body {
   background-color: black;
 }
 
+h1 {
+  text-align: center;
+  color: white;
+}
+
 a {
   text-decoration: none;
 }
@@ -14,9 +19,13 @@ a {
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: black;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.05));
   position: fixed;
   width: 100%;
+  z-index: 1;
+}
+.navbar--solid {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 .navbar .logo {
   padding: 10px;
@@ -43,25 +52,117 @@ a {
 }
 
 .main-section {
-  margin-top: 48px;
-  height: 100%;
-  background-color: red;
+  margin-top: 0;
+}
+.main-section .container img {
+  width: 100%;
+}
+.main-section .container .best-movie-info {
+  width: 20%;
+  position: absolute;
+  top: 35%;
+  left: 5%;
+  color: white;
+}
+.main-section .container .best-movie-info h2 {
+  font-size: xx-large;
+}
+.main-section .container .best-movie-info button {
+  border: none;
+  padding: 10px 50px;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  font-size: large;
+  border-radius: 10px;
+  background-color: #e7e7e7;
+}
+.main-section .container .best-movie-info button:hover {
+  background-color: #686868;
+  color: white;
 }
 
-.best-ratings {
-  background-color: green;
+.carousel {
+  display: grid;
+  grid-template-columns: repeat(2, 100%);
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+.carousel section {
+  width: 100%;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  margin: 20px 0;
+}
+.carousel section .item {
+  padding: 0 2px;
+  transition: 0.5s all;
+}
+.carousel section .item:hover {
+  margin: 0 40px;
+  transform: scale(1.2);
+}
+.carousel section .arrow__btn {
+  position: absolute;
+  color: #fff;
+  text-decoration: none;
+  font-size: 6em;
+  background: rgb(0, 0, 0);
+  width: 80px;
+  padding: 20px;
+  text-align: center;
+  z-index: 1;
+}
+.carousel section .arrow__btn:nth-of-type(1) {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(-90deg, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);
+}
+.carousel section .arrow__btn:nth-of-type(2) {
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);
 }
 
-.cat-1 {
-  background-color: aliceblue;
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
-.cat-2 {
-  background-color: aquamarine;
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
 }
 
-.cat-3 {
-  background-color: bisque;
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=styles.css.map */
