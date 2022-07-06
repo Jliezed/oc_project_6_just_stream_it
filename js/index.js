@@ -11,44 +11,47 @@ document.addEventListener("scroll", function() {
 
 })
 
+
+
+
 // Get Data from API
-let urlsToParse = ["http://127.0.0.1:8000/api/v1/titles/?sort_by=-imdb_score&year=2020", "http://127.0.0.1:8000/api/v1/titles/?page=2&sort_by=-imdb_score&year=2020"];
-let urlsBestMovies = [];
+
 
 // Get Best Movies URLs
-function getBestMoviesUrls() {
-    for (let url in urlsToParse) {
-        fetch(urlsToParse[url])
-            .then(function (res) {
-                if (res.ok) {
-                    return res.json();
-                }
-            })
-            .then(function (value){
-                let bestMoviesInfo = value.results;
-                for (let movieInfo in bestMoviesInfo) {
-                    urlsBestMovies.push(bestMoviesInfo[movieInfo].url);
-                }
-            })
-            .catch(function (err){
-                // Une erreur est survenue
-                //console.log(err);
-            })
-    }
-    for (let urlMovie in urlsBestMovies) {
-        fetch(urlsBestMovies[urlMovie])
-            .then(function (res) {
-                if (res.ok) {
-                    return res.json();
-                }
-            })
-            .then(function (value){
-                console.log(value);
-            })
-    }
+async function getBestMoviesUrls() {
+    await fetch("http://127.0.0.1:8000/api/v1/titles/?sort_by=-imdb_score&&page_size=7")
+        .then(function (response) {
+            if (response.ok) {
+                return response.json();
+            }
+        })
+        .then(function (value){
+            // console.log(value);
+            dictMovies = value.results;
+            let moviesUrls = []
+            for (i in dictMovies) {
+                movieUrl = dictMovies[i].url;
+                moviesUrls.push(movieUrl);
+            }
+            return moviesUrls;
+        })
+        .then(function(data){
+            console.log(data);
+            return data;
+        })
+        .catch(function (err){
+            // Une erreur est survenue
+            //console.log(err);
+        })
 }
-getBestMoviesUrls();
-//console.log(urlsBestMovies.length);
+
+async function mergeFunction() {
+    const data = await getBestMoviesUrls();
+    return data
+}
+
+console.log(mergeFunction());
+
 
 
 
@@ -64,7 +67,7 @@ var modal = document.getElementsByClassName("modal");
 
 // Get the button that opens the modal
 var btn = document.getElementsByClassName("modal-button");
-console.log(btn);
+//console.log(btn);
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
