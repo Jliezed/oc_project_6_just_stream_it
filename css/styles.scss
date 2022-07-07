@@ -110,9 +110,11 @@ a {
     display: grid;
     grid-template-columns: repeat(5, 25%);
     margin: 20px 0;
+
     .item {
       padding: 0 2px;
       transition: 0.5s all;
+
       &:hover {
         margin: 0 40px;
         transform: scale(1.2);
@@ -156,12 +158,74 @@ a {
 
 #modal {
   &.active {
+    display: flex;
+    flex-direction: row;
     width: 80%;
-    height: 80%;
+    height: 70%;
     background-color: white;
     position: fixed;
     z-index: 1;
-    top: 10%;
+    top: 15%;
     left: 10%;
+    opacity: 95%;
+    color: black;
+    padding: 10px;
+    border-radius: 5px;
+
+    & .movie {
+      display: flex;
+      flex-direction: row;
+
+      & .info-left {
+        padding: 10px;
+        & .image {
+          height: 100%;
+          border-radius: 5px;
+        }
+      }
+
+      & .info-right {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+
+        & .header {
+          display: flex;
+          flex-direction: row;
+        }
+
+        & .first-level {
+          display: flex;
+          flex-direction: row;
+        }
+
+        & .second-level {
+          display: flex;
+          flex-direction: row;
+        }
+
+        & .third-level {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+    }
+  }
+
+  & .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 0 10px;
+    &:hover {
+      color: darken(#aaa, 50%);
+      cursor: pointer;
+    }
+  }
+
+  & .movie-info {
+    display: flex;
+    flex-direction: row;
   }
 }

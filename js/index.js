@@ -104,19 +104,50 @@ async function createModal() {
         // Create Modal
         let modalDiv = document.getElementById("modal");
         modalDiv.setAttribute("class", "active");
+
+        let divMovieImage = document.querySelector("#modal .info-left .image");
+        divMovieImage.src = movieData.imageUrl;
+        let divMovieTitle = document.querySelector("#modal .info-right .title");
+        divMovieTitle.textContent = movieData.movieTitle;
+        let divMovieGenre = document.querySelector("#modal .info-right .genre");
+        divMovieGenre.textContent = movieData.movieGenre;
+        let divMovieDate = document.querySelector("#modal .info-right .date");
+        divMovieDate.textContent = movieData.movieDate;
+        let divMovieRating = document.querySelector("#modal .info-right .rating");
+        divMovieRating.textContent = movieData.movieRating;
+        let divMovieImdbScore = document.querySelector("#modal .info-right .imdb-score");
+        divMovieImdbScore.textContent = movieData.movieImdbScore;
+        let divMovieDirector = document.querySelector("#modal .info-right .director");
+        divMovieDirector.textContent = movieData.movieDirector;
+        let divMovieActors = document.querySelector("#modal .info-right .actors");
+        divMovieActors.textContent = movieData.movieActors;
+        let divMovieDuration = document.querySelector("#modal .info-right .duration");
+        divMovieDuration.textContent = movieData.movieDuration;
+        let divMovieCountries = document.querySelector("#modal .info-right .countries");
+        divMovieCountries.textContent = movieData.movieCountries;
+        let divMovieIncome = document.querySelector("#modal .info-right .income");
+        divMovieIncome.textContent = movieData.movieIncome;
+        let divMovieDescription = document.querySelector("#modal .info-right .description");
+        divMovieDescription.textContent = movieData.movieDescription;
         })
     }
 }
 
 
 // Launch functions
-async function mergeFunction(url) {
+async function mergeFunction() {
     console.log("1");
-    const bestMoviesImagesUrls = await getImagesUrls(url);
+    const bestMoviesImagesUrls = await getImagesUrls("http://localhost:8000/api/v1/titles/?sort_by=-votes,-imdb_score&page_size=7");
+    const bestSciFiMoviesImagesUrls = await getImagesUrls("http://localhost:8000/api/v1/titles/?sort_by=-votes,-imdb_score&genre=Sci-Fi&page_size=7")
+    const bestAnimationMoviesImagesUrls = await getImagesUrls("http://localhost:8000/api/v1/titles/?sort_by=-votes,-imdb_score&genre=Animation&page_size=7");
+    const bestComedyImagesUrls = await getImagesUrls("http://localhost:8000/api/v1/titles/?sort_by=-votes,-imdb_score&genre=Comedy&page_size=7")
     console.log(bestMoviesImagesUrls);
     console.log("2");
-    const movieData = await populateCarousel(bestMoviesImagesUrls, "carousel-best-movies");
-    console.log(movieData);
+    const bestMoviesData = await populateCarousel(bestMoviesImagesUrls, "carousel-best-rated-movies");
+    const bestSciFiMovieData = await populateCarousel(bestSciFiMoviesImagesUrls, "carousel-best-sci-fi-rated-movies");
+    const bestAnimationMovieData = await populateCarousel(bestAnimationMoviesImagesUrls, "carousel-best-animation-rated-movies");
+    const bestComedyMovieData = await populateCarousel(bestComedyImagesUrls, "carousel-best-comedy-rated-movies");
+    console.log(bestSciFiMovieData);
     console.log("3");
     const test = await createModal();
     console.log("4");
