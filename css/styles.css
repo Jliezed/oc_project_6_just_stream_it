@@ -170,9 +170,16 @@ a {
   display: flex;
   flex-direction: row;
 }
+#modal.active .movie .info-right .header .title {
+  margin: auto;
+  color: black;
+}
 #modal.active .movie .info-right .first-level {
   display: flex;
   flex-direction: row;
+}
+#modal.active .movie .info-right .first-level .genre {
+  flex-basis: 25%;
 }
 #modal.active .movie .info-right .second-level {
   display: flex;
@@ -182,20 +189,19 @@ a {
   display: flex;
   flex-direction: column;
 }
-#modal .close {
+#modal.active .movie .close {
   color: #aaa;
   float: right;
   font-size: 28px;
   font-weight: bold;
   padding: 0 10px;
 }
-#modal .close:hover {
+#modal.active .movie .close:hover {
   color: #2b2b2b;
   cursor: pointer;
 }
-#modal .movie-info {
-  display: flex;
-  flex-direction: row;
+#modal.deactivate {
+  display: none;
 }
 
 /*# sourceMappingURL=styles.css.map */

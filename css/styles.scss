@@ -178,6 +178,7 @@ a {
 
       & .info-left {
         padding: 10px;
+
         & .image {
           height: 100%;
           border-radius: 5px;
@@ -192,11 +193,24 @@ a {
         & .header {
           display: flex;
           flex-direction: row;
+
+          & .title {
+            margin: auto;
+            color: black;
+          }
+
+          & .imdb-score {
+
+          }
         }
 
         & .first-level {
           display: flex;
           flex-direction: row;
+
+          & .genre {
+            flex-basis: 25%;
+          }
         }
 
         & .second-level {
@@ -209,23 +223,22 @@ a {
           flex-direction: column;
         }
       }
+
+      & .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        padding: 0 10px;
+
+        &:hover {
+          color: darken(#aaa, 50%);
+          cursor: pointer;
+        }
+      }
     }
   }
-
-  & .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    padding: 0 10px;
-    &:hover {
-      color: darken(#aaa, 50%);
-      cursor: pointer;
-    }
-  }
-
-  & .movie-info {
-    display: flex;
-    flex-direction: row;
+  &.deactivate {
+    display: none;
   }
 }

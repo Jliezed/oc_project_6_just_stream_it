@@ -10,6 +10,10 @@ document.addEventListener("scroll", function () {
     }
 })
 
+document.getElementById("close").addEventListener("click", function() {
+    let modal = document.getElementById("modal");
+    modal.classList.replace("active", "deactivate");
+})
 
 // Get Data from API
 // Function to get all URLs' images for a specific API's url
@@ -116,7 +120,7 @@ async function createModal() {
         let divMovieRating = document.querySelector("#modal .info-right .rating");
         divMovieRating.textContent = movieData.movieRating;
         let divMovieImdbScore = document.querySelector("#modal .info-right .imdb-score");
-        divMovieImdbScore.textContent = movieData.movieImdbScore;
+        divMovieImdbScore.textContent = "Imdb Score: " + movieData.movieImdbScore;
         let divMovieDirector = document.querySelector("#modal .info-right .director");
         divMovieDirector.textContent = movieData.movieDirector;
         let divMovieActors = document.querySelector("#modal .info-right .actors");
