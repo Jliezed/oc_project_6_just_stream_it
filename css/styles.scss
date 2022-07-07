@@ -1,5 +1,4 @@
 
-
 body {
   font-family: Helvetica;
   display: flex;
@@ -21,21 +20,25 @@ a {
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) , rgba(0, 0, 0, 0.05));
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.05));
   position: fixed;
   width: 100%;
   z-index: 1;
+
   &--solid {
-    background-color:  rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.8);
   }
+
   & .logo {
     padding: 10px;
     margin-right: auto;
     font-size: x-large;
+
     & a {
       color: red;
     }
   }
+
   & .nav-items {
     display: flex;
     flex-direction: row;
@@ -43,9 +46,11 @@ a {
     flex-grow: 1;
     padding: 10px;
     color: white;
+
     & .nav-item {
       margin: 10px;
       text-align: center;
+
       & a {
         color: white;
       }
@@ -55,19 +60,25 @@ a {
 
 .main-section {
   margin-top: 0;
+
   & .container {
+    position: relative;
+
     & img {
       width: 100%;
     }
+
     & .best-movie-info {
       width: 20%;
       position: absolute;
       top: 35%;
       left: 5%;
       color: white;
-      & h2{
+
+      & h2 {
         font-size: xx-large;
       }
+
       & button {
         border: none;
         padding: 10px 50px;
@@ -77,6 +88,7 @@ a {
         font-size: large;
         border-radius: 10px;
         background-color: #e7e7e7;
+
         &:hover {
           background-color: darken(#e7e7e7, 50%);
           color: white;
@@ -88,15 +100,15 @@ a {
 
 .carousel {
   display: grid;
-  grid-template-columns: repeat(2,100%);
-  overflow:hidden;
+  grid-template-columns: repeat(2, 100%);
+  overflow: hidden;
   scroll-behavior: smooth;
 
   section {
     width: 100%;
     position: relative;
     display: grid;
-    grid-template-columns: repeat(5, auto);
+    grid-template-columns: repeat(5, 25%);
     margin: 20px 0;
     .item {
       padding: 0 2px;
@@ -105,6 +117,12 @@ a {
         margin: 0 40px;
         transform: scale(1.2);
       }
+
+      & img {
+        display: block;
+        cursor: pointer;
+        margin: auto;
+      }
     }
 
     .arrow__btn {
@@ -112,62 +130,38 @@ a {
       color: #fff;
       text-decoration: none;
       font-size: 6em;
-      background:rgb(0,0,0);
+      background: rgb(0, 0, 0);
       width: 80px;
       padding: 20px;
       text-align: center;
       z-index: 1;
 
       &:nth-of-type(1) {
-        top:0; bottom:0; left:0;
-        background: linear-gradient(-90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+        top: 0;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient(-90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
       }
+
       &:nth-of-type(2) {
-        top:0; bottom:0; right: 0;
-        background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+        top: 0;
+        bottom: 0;
+        right: 0;
+        background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
       }
     }
   }
 }
 
 
-
-
-
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-}
-
-/* The Close Button */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
+#modal {
+  &.active {
+    width: 80%;
+    height: 80%;
+    background-color: white;
+    position: fixed;
+    z-index: 1;
+    top: 10%;
+    left: 10%;
+  }
 }

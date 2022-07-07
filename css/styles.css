@@ -54,6 +54,9 @@ a {
 .main-section {
   margin-top: 0;
 }
+.main-section .container {
+  position: relative;
+}
 .main-section .container img {
   width: 100%;
 }
@@ -92,7 +95,7 @@ a {
   width: 100%;
   position: relative;
   display: grid;
-  grid-template-columns: repeat(5, auto);
+  grid-template-columns: repeat(5, 25%);
   margin: 20px 0;
 }
 .carousel section .item {
@@ -102,6 +105,11 @@ a {
 .carousel section .item:hover {
   margin: 0 40px;
   transform: scale(1.2);
+}
+.carousel section .item img {
+  display: block;
+  cursor: pointer;
+  margin: auto;
 }
 .carousel section .arrow__btn {
   position: absolute;
@@ -127,42 +135,14 @@ a {
   background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);
 }
 
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0); /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
-}
-
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-}
-
-/* The Close Button */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
+#modal.active {
+  width: 80%;
+  height: 80%;
+  background-color: white;
+  position: fixed;
+  z-index: 1;
+  top: 10%;
+  left: 10%;
 }
 
 /*# sourceMappingURL=styles.css.map */
