@@ -2,8 +2,15 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Title</title>
+	<title>Just Stram It</title>
 	<link rel="stylesheet" href="css/styles.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Roboto+Condensed:wght@300;400;700&family=Roboto:wght@100;300;400;500;700;900&family=Titillium+Web:wght@200;300;400;600;700;900&display=swap"
+	      rel="stylesheet">
+	<script src="https://kit.fontawesome.com/30a75b773a.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -14,13 +21,16 @@
 	</div>
 	<div class="nav-items">
 		<div class="nav-item">
-			<a href="">Accueil</a>
+			<a href="#best-rated-movies">Home</a>
 		</div>
 		<div class="nav-item">
-			<a href="">Séries</a>
+			<a href="#best-sci-fi-rated-movies">Best Science Fiction</a>
 		</div>
 		<div class="nav-item">
-			<a href="">Films</a>
+			<a href="#best-animation-rated-movies">Best Animation</a>
+		</div>
+		<div class="nav-item">
+			<a href="#best-comedy-rated-movies">Best Comedy</a>
 		</div>
 	
 	</div>
@@ -28,23 +38,16 @@
 
 
 <-- MAIN SECTION -->
-<section class="main-section">
+<section id="main-section" class="main-section">
 	<div class="container">
-		<img src="https://mytvonline.io/wp-content/uploads/2022/01/1641488212_BEST-MOVIES-ON-NETFLIX.jpg" alt="">
 		<div class="best-movie-info">
-			<h2 id="best-movie-title"> TITRE DU FILM</h2>
-			<button class="modal-button"> PLAY</button>
-			<!-- The Modal -->
-			<div class="modal">
-				<!-- Modal content -->
-				<div class="modal-content">
-					<span class="close">&times;</span>
-					<p>Some text in the Modal..</p>
-				</div>
-			
-			</div>
-			<p id="best-movie-desc">Description du film. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-				eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+			<h2 id="best-movie-title"></h2>
+			<button class="play">MORE INFO</button>
+			<p id="best-movie-desc"></p>
+		</div>
+		<div class="image">
+			<img id="best-movie-image"
+			     src="" alt="">
 		</div>
 	</div>
 </section>
@@ -154,24 +157,28 @@
 				<h3 class="imdb-score"></h3>
 			</div>
 			<div class="first-level">
-				<h3 class="genre"></h3>
-				<h3 class="countries"></h3>
-				<h3 class="duration"></h3>
-				<h3 class="date"></h3>
+				<p class="genre"></p>
+				<p class="countries"></p>
+				<p class="date"></p>
 			</div>
 			<div class="second-level">
-				<h3 class="rating"></h3>
-				<h3 class="director"></h3>
+				<p class="duration"></p>
+				<p class="rating"></p>
+			
 			</div>
 			<div class="third-level">
-				<h3 class="actors"></h3>
-				<h3 class="income"></h3>
+				<p class="director"></p>
+				<p class="actors"></p>
+				<p class="income"></p>
 				<p class="description"></p>
 			</div>
 		</div>
 		<span id="close" class="close">&times;</span>
 	</div>
 </div>
+
 <script type="text/javascript" src="js/index.js"></script>
+
 </body>
+<footer> Copyright</footer>
 </html>

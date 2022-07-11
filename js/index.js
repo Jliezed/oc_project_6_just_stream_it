@@ -1,3 +1,4 @@
+/* ---------- NAVBAR & CLOSING BUTTON ---------- */
 // Navbar Transparent to Solid on scroll
 document.addEventListener("scroll", function () {
     let navbar = document.querySelector(".navbar");
@@ -10,12 +11,22 @@ document.addEventListener("scroll", function () {
     }
 })
 
-document.getElementById("close").addEventListener("click", function() {
+
+// Modal Closing Button
+document.getElementById("close").addEventListener("click", function () {
     let modal = document.getElementById("modal");
     modal.classList.replace("active", "deactivate");
 })
 
-// Get Data from API
+let nbOfArrows = document.getElementsByClassName("arrow__btn").length;
+for (var i=0; i < nbOfArrows; i++) {
+    document.getElementsByClassName("arrow__btn")[i].addEventListener("click", function (event){
+        //event.preventDefault();
+    })
+}
+
+
+/* ---------- GETTING DATA FROM API ---------- */
 // Function to get all URLs' images for a specific API's url
 async function getImagesUrls(url) {
     let results = await fetch(url)
@@ -41,6 +52,7 @@ async function getImagesUrls(url) {
     return results;
 }
 
+
 // Function to populate a carousel using a list of URLs' images and the ID of the carousel to populate
 async function populateCarousel(moviesUrlsId, carouselId) {
     let numberOfDivItem = document.querySelectorAll("#" + carouselId + " .item").length;
@@ -54,6 +66,7 @@ async function populateCarousel(moviesUrlsId, carouselId) {
         getDiv.appendChild(img);
     }
 }
+
 
 // Function get Movie Information from API
 async function movieInfo(movieId) {
@@ -77,7 +90,7 @@ async function movieInfo(movieId) {
             let movieIncome = value.worldwide_gross_income;
             let movieDescription = value.description;
 
-            let movieData = {
+            let data = {
                 "imageUrl": imgUrl,
                 "movieTitle": movieTitle,
                 "movieGenre": movieGenre,
@@ -91,72 +104,115 @@ async function movieInfo(movieId) {
                 "movieIncome": movieIncome,
                 "movieDescription": movieDescription,
             };
-            return movieData;
+            console.log(data);
+            return data;
         })
-        return movieData;
+        .catch(function (err) {
+            // Une erreur est survenue
+            console.log(err);
+        })
+    return movieData;
 }
 
-// Function to open Modal and populate Movie Information
-async function createModal() {
-    let numberOfMoviesImages = document.querySelectorAll(".item img").length;
-     for (let i = 0; i < numberOfMoviesImages; i++) {
-        document.querySelectorAll(".item img")[i].addEventListener("click", async function () {
-        // Retieve Data from API
-        let imageId = this.alt;
-        let movieData = await movieInfo(imageId);
-        console.log(movieData);
-        // Create Modal
-        let modalDiv = document.getElementById("modal");
-        modalDiv.setAttribute("class", "active");
 
-        let divMovieImage = document.querySelector("#modal .info-left .image");
-        divMovieImage.src = movieData.imageUrl;
-        let divMovieTitle = document.querySelector("#modal .info-right .title");
-        divMovieTitle.textContent = movieData.movieTitle;
-        let divMovieGenre = document.querySelector("#modal .info-right .genre");
-        divMovieGenre.textContent = movieData.movieGenre;
-        let divMovieDate = document.querySelector("#modal .info-right .date");
-        divMovieDate.textContent = movieData.movieDate;
-        let divMovieRating = document.querySelector("#modal .info-right .rating");
-        divMovieRating.textContent = movieData.movieRating;
-        let divMovieImdbScore = document.querySelector("#modal .info-right .imdb-score");
-        divMovieImdbScore.textContent = "Imdb Score: " + movieData.movieImdbScore;
-        let divMovieDirector = document.querySelector("#modal .info-right .director");
-        divMovieDirector.textContent = movieData.movieDirector;
-        let divMovieActors = document.querySelector("#modal .info-right .actors");
-        divMovieActors.textContent = movieData.movieActors;
-        let divMovieDuration = document.querySelector("#modal .info-right .duration");
-        divMovieDuration.textContent = movieData.movieDuration;
-        let divMovieCountries = document.querySelector("#modal .info-right .countries");
-        divMovieCountries.textContent = movieData.movieCountries;
-        let divMovieIncome = document.querySelector("#modal .info-right .income");
-        divMovieIncome.textContent = movieData.movieIncome;
-        let divMovieDescription = document.querySelector("#modal .info-right .description");
-        divMovieDescription.textContent = movieData.movieDescription;
+// Function to populate Modal
+function populateModal(movieData) {
+    // Create Modal
+    let modalDiv = document.getElementById("modal");
+    modalDiv.setAttribute("class", "active");
+
+    let divMovieImage = document.querySelector("#modal .info-left .image");
+    divMovieImage.src = movieData.imageUrl;
+    let divMovieTitle = document.querySelector("#modal .info-right .title");
+    divMovieTitle.textContent = movieData.movieTitle;
+    let divMovieGenre = document.querySelector("#modal .info-right .genre");
+    divMovieGenre.innerHTML = "<i>Genre: </i>" + "<strong>" + movieData.movieGenre + "</strong>";
+    let divMovieDate = document.querySelector("#modal .info-right .date");
+    divMovieDate.innerHTML = "<i>Release Date: </i>" + "<strong>" + movieData.movieDate + "</strong>" ;
+    let divMovieRating = document.querySelector("#modal .info-right .rating");
+    divMovieRating.innerHTML = "<i>Rating: </i>" + "<strong>" + movieData.movieRating + "</strong>";
+    let divMovieImdbScore = document.querySelector("#modal .info-right .imdb-score");
+    divMovieImdbScore.innerHTML =  "<i>Imdb Score: </i>" + movieData.movieImdbScore + "  " + "<i class=\'fa-solid fa-ranking-star\'></i>";
+    let divMovieDirector = document.querySelector("#modal .info-right .director");
+    divMovieDirector.innerHTML = "<i>Director: </i>" + "<strong>" + movieData.movieDirector + "</strong>";
+    let divMovieActors = document.querySelector("#modal .info-right .actors");
+    divMovieActors.innerHTML = "<i>Actors: </i><br>" + "<strong>" + movieData.movieActors + "</strong>";
+    let divMovieDuration = document.querySelector("#modal .info-right .duration");
+    divMovieDuration.innerHTML = "<i>Duration: </i>" + "<strong>" + movieData.movieDuration + "</strong>";
+    let divMovieCountries = document.querySelector("#modal .info-right .countries");
+    divMovieCountries.innerHTML = "<i>Countries: </i>" + "<strong>" + movieData.movieCountries + "</strong>";
+    let divMovieIncome = document.querySelector("#modal .info-right .income");
+    divMovieIncome.innerHTML = "<i>Box Office Revenue: </i>" + "<strong>" + movieData.movieIncome.toLocaleString("en-US") + "</strong>";
+    let divMovieDescription = document.querySelector("#modal .info-right .description");
+    divMovieDescription.innerHTML = "<i>Synopsis: </i><br>" + movieData.movieDescription;
+}
+
+
+// Function to open Modal and populate Movie Information
+async function createModalCarousel() {
+    let numberOfMoviesImages = document.querySelectorAll(".item img").length;
+    for (let i = 0; i < numberOfMoviesImages; i++) {
+        document.querySelectorAll(".item img")[i].addEventListener("click", async function () {
+            // Retieve Data from API
+            let imageId = this.alt;
+            let movieData = await movieInfo(imageId);
+
+            populateModal(movieData);
         })
     }
 }
 
+// Function create and populate Modal of the main section button
+async function createModalMainButton() {
+    document.querySelector(".play").addEventListener("click", async function() {
+        let bestMovieMainSectionDiv = document.getElementById("best-movie-image");
+        let bestMovieId = bestMovieMainSectionDiv.getAttribute("alt");
+
+        let movieData = await movieInfo(bestMovieId);
+
+        populateModal(movieData);
+    })
+}
+
+
+// Function to populate main section
+async function populateMainSection() {
+    let bestMovieDiv = document.querySelector("#best-rated-movies-first-part div img");
+    let bestMovieId = bestMovieDiv.getAttribute("alt");
+    let bestMovieData = await movieInfo(bestMovieId);
+
+    let bestMovieImageDiv = document.getElementById("best-movie-image");
+    let bestMovieTitle = document.getElementById("best-movie-title");
+    let bestMovieDescription = document.getElementById("best-movie-desc");
+
+    bestMovieImageDiv.setAttribute("src", bestMovieData.imageUrl);
+    bestMovieImageDiv.setAttribute("alt", bestMovieId);
+    bestMovieTitle.textContent = bestMovieData.movieTitle;
+    bestMovieDescription.textContent = bestMovieData.movieDescription;
+
+}
 
 // Launch functions
 async function mergeFunction() {
     console.log("1");
     const bestMoviesImagesUrls = await getImagesUrls("http://localhost:8000/api/v1/titles/?sort_by=-votes,-imdb_score&page_size=7");
-    const bestSciFiMoviesImagesUrls = await getImagesUrls("http://localhost:8000/api/v1/titles/?sort_by=-votes,-imdb_score&genre=Sci-Fi&page_size=7")
+    const bestSciFiMoviesImagesUrls = await getImagesUrls("http://localhost:8000/api/v1/titles/?sort_by=-votes,-imdb_score&genre=Sci-Fi&page_size=7");
     const bestAnimationMoviesImagesUrls = await getImagesUrls("http://localhost:8000/api/v1/titles/?sort_by=-votes,-imdb_score&genre=Animation&page_size=7");
-    const bestComedyImagesUrls = await getImagesUrls("http://localhost:8000/api/v1/titles/?sort_by=-votes,-imdb_score&genre=Comedy&page_size=7")
-    console.log(bestMoviesImagesUrls);
+    const bestComedyImagesUrls = await getImagesUrls("http://localhost:8000/api/v1/titles/?sort_by=-votes,-imdb_score&genre=Comedy&page_size=7");
     console.log("2");
     const bestMoviesData = await populateCarousel(bestMoviesImagesUrls, "carousel-best-rated-movies");
+    const bestMovieMainSection = await populateMainSection();
     const bestSciFiMovieData = await populateCarousel(bestSciFiMoviesImagesUrls, "carousel-best-sci-fi-rated-movies");
     const bestAnimationMovieData = await populateCarousel(bestAnimationMoviesImagesUrls, "carousel-best-animation-rated-movies");
     const bestComedyMovieData = await populateCarousel(bestComedyImagesUrls, "carousel-best-comedy-rated-movies");
-    console.log(bestSciFiMovieData);
     console.log("3");
-    const test = await createModal();
+    const modalCarousel = await createModalCarousel();
     console.log("4");
+    const modalMainButton = await createModalMainButton();
+    console.log(modalMainButton);
+
 }
 
-mergeFunction("http://127.0.0.1:8000/api/v1/titles/?sort_by=-imdb_score&page_size=7");
+mergeFunction();
 
 
