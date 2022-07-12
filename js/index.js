@@ -18,15 +18,25 @@ document.getElementById("close").addEventListener("click", function () {
     modal.classList.replace("active", "deactivate");
 })
 
-let nbOfArrows = document.getElementsByClassName("arrow__btn").length;
-for (var i=0; i < nbOfArrows; i++) {
-    document.getElementsByClassName("arrow__btn")[i].addEventListener("click", function (event){
-        //event.preventDefault();
+
+
+// Carousel Toggle
+let nbOfArrow = document.getElementsByClassName("arrow").length;
+let arrows = document.getElementsByClassName("arrow");
+for (let i = 0; i < nbOfArrow; i++) {
+    arrows[i].addEventListener("click", function (event) {
+        let arrowParentElement = arrows[i].parentElement.parentElement.parentElement;
+        let slides = arrowParentElement.getElementsByClassName("slides");
+        let nbOfSlides = arrowParentElement.getElementsByClassName("slides").length;
+        for (let i = 0; i <nbOfSlides; i++) {
+            slides[i].classList.toggle("deactivate");
+        }
+
     })
 }
 
-
 /* ---------- GETTING DATA FROM API ---------- */
+
 // Function to get all URLs' images for a specific API's url
 async function getImagesUrls(url) {
     let results = await fetch(url)
@@ -55,7 +65,7 @@ async function getImagesUrls(url) {
 
 // Function to populate a carousel using a list of URLs' images and the ID of the carousel to populate
 async function populateCarousel(moviesUrlsId, carouselId) {
-    let numberOfDivItem = document.querySelectorAll("#" + carouselId + " .item").length;
+    let numberOfDivItem = document.querySelectorAll("#" + carouselId + " .item").length - 1;
 
     for (let i = 0; i < numberOfDivItem; i++) {
         let getDiv = document.querySelectorAll("#" + carouselId + " .item")[i];
@@ -128,17 +138,17 @@ function populateModal(movieData) {
     let divMovieGenre = document.querySelector("#modal .info-right .genre");
     divMovieGenre.innerHTML = "<i>Genre: </i>" + "<strong>" + movieData.movieGenre + "</strong>";
     let divMovieDate = document.querySelector("#modal .info-right .date");
-    divMovieDate.innerHTML = "<i>Release Date: </i>" + "<strong>" + movieData.movieDate + "</strong>" ;
+    divMovieDate.innerHTML = "<i>Release Date: </i>" + "<strong>" + movieData.movieDate + "</strong>";
     let divMovieRating = document.querySelector("#modal .info-right .rating");
     divMovieRating.innerHTML = "<i>Rating: </i>" + "<strong>" + movieData.movieRating + "</strong>";
     let divMovieImdbScore = document.querySelector("#modal .info-right .imdb-score");
-    divMovieImdbScore.innerHTML =  "<i>Imdb Score: </i>" + movieData.movieImdbScore + "  " + "<i class=\'fa-solid fa-ranking-star\'></i>";
+    divMovieImdbScore.innerHTML = "<i>Imdb Score: </i>" + movieData.movieImdbScore + "  " + "<i class=\'fa-solid fa-ranking-star\'></i>";
     let divMovieDirector = document.querySelector("#modal .info-right .director");
     divMovieDirector.innerHTML = "<i>Director: </i>" + "<strong>" + movieData.movieDirector + "</strong>";
     let divMovieActors = document.querySelector("#modal .info-right .actors");
     divMovieActors.innerHTML = "<i>Actors: </i><br>" + "<strong>" + movieData.movieActors + "</strong>";
     let divMovieDuration = document.querySelector("#modal .info-right .duration");
-    divMovieDuration.innerHTML = "<i>Duration: </i>" + "<strong>" + movieData.movieDuration + "</strong>";
+    divMovieDuration.innerHTML = "<i>Duration: </i>" + "<strong>" + movieData.movieDuration + " minutes</strong>";
     let divMovieCountries = document.querySelector("#modal .info-right .countries");
     divMovieCountries.innerHTML = "<i>Countries: </i>" + "<strong>" + movieData.movieCountries + "</strong>";
     let divMovieIncome = document.querySelector("#modal .info-right .income");
@@ -164,7 +174,7 @@ async function createModalCarousel() {
 
 // Function create and populate Modal of the main section button
 async function createModalMainButton() {
-    document.querySelector(".play").addEventListener("click", async function() {
+    document.querySelector(".play").addEventListener("click", async function () {
         let bestMovieMainSectionDiv = document.getElementById("best-movie-image");
         let bestMovieId = bestMovieMainSectionDiv.getAttribute("alt");
 
@@ -177,7 +187,7 @@ async function createModalMainButton() {
 
 // Function to populate main section
 async function populateMainSection() {
-    let bestMovieDiv = document.querySelector("#best-rated-movies-first-part div img");
+    let bestMovieDiv = document.querySelector("#carousel-best-rated-movies div img");
     let bestMovieId = bestMovieDiv.getAttribute("alt");
     let bestMovieData = await movieInfo(bestMovieId);
 

@@ -1,8 +1,9 @@
 html {
   scroll-behavior: smooth;
 }
+
 body {
-  font-family: 'Roboto Condensed','Montserrat','Roboto','Titillium Web', sans-serif;
+  font-family: 'Roboto Condensed', 'Montserrat', 'Roboto', 'Titillium Web', sans-serif;
   display: flex;
   flex-direction: column;
   margin: 0;
@@ -10,7 +11,6 @@ body {
 }
 
 h1 {
-  padding-top: 7%;
   text-align: center;
   color: white;
 }
@@ -72,8 +72,10 @@ a {
     align-items: center;
     height: 100vh;
     background-image: radial-gradient(circle, #353536, #2c2c2d, #232324, #1b1b1b, #121212, #0d0d0d, #070707, #000000, #000000, #000000, #000000, #000000);
+
     & .image {
       padding: 5%;
+
       & img {
         height: 85vh;
         border-radius: 5px;
@@ -84,6 +86,7 @@ a {
     & .best-movie-info {
       padding: 7%;
       color: white;
+
       & h2 {
         font-size: xxx-large;
       }
@@ -109,62 +112,81 @@ a {
 }
 
 /* ----- CAROUSEL ----- */
+.carousel-header {
+  margin-top: 7%;
+}
+
 .carousel {
-  display: grid;
-  grid-template-columns: repeat(2, 100%);
-  overflow: hidden;
-  scroll-behavior: smooth;
+  color: white;
+  & section {
+    flex-direction: row;
+    &.deactivate {
+      display: none;
+    }
+    &.fade-left {
+      animation: fade-left 1s;
+    }
+    &.fade-right {
+      animation: right 0.2s;
+    }
+    & .items {
+      display: flex;
+      flex-direction: row;
+      height: 100%;
 
-  section {
-    width: 100%;
-    position: relative;
-    display: grid;
-    grid-template-columns: repeat(5, 25%);
-    margin: 20px 0;
-
-    .item {
-      padding: 0 2px;
-      transition: 0.5s all;
-
-      &:hover {
-        margin: 0 40px;
-        transform: scale(1.2);
-      }
-
-      & img {
-        display: block;
+      & button {
+        flex-basis: 5%;
         cursor: pointer;
-        margin: auto;
+        background-color: black;
+        border-color: black;
+        color: white;
+        font-size: 3rem;
+        padding: 2%;
+        transition: all 0.5s;
+        &:hover {
+          color: darken(white, 50%);
+          transform: scale(1.2);
+        }
+      }
+
+      & .item {
+        flex-basis: 22.5%;
+        display: flex;
+        justify-content: center;
+
+        & img {
+          height: 100%;
+          transition: all 0.5s;
+          border-radius: 5px;
+          &:hover {
+            transform: scale(1.2);
+
+          }
+        }
       }
     }
 
-    .arrow__btn {
-      position: absolute;
-      color: #fff;
-      text-decoration: none;
-      font-size: 6em;
-      background: rgb(0, 0, 0);
-      width: 80px;
-      padding: 20px;
-      text-align: center;
-      z-index: 1;
-
-      &:nth-of-type(1) {
-        top: 0;
-        bottom: 0;
-        left: 0;
-        background: linear-gradient(-90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
-      }
-
-      &:nth-of-type(2) {
-        top: 0;
-        bottom: 0;
-        right: 0;
-        background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
-      }
-    }
   }
 }
+
+@keyframes fade-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes fade-left {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
 
 
 /* ----- MODALE ----- */
@@ -194,6 +216,7 @@ a {
         & .image {
           height: 100%;
           border-radius: 5px;
+          border: 1px solid grey;
         }
       }
 
@@ -228,9 +251,11 @@ a {
           & .genre {
             flex-basis: 33%;
           }
+
           & .countries {
             flex-basis: 33%;
           }
+
           & .date {
             flex-basis: 33%;
           }
@@ -240,6 +265,7 @@ a {
           display: flex;
           flex-direction: row;
           justify-content: space-around;
+
           & .duration {
             flex-basis: 33%;
           }
@@ -277,11 +303,12 @@ a {
 }
 
 
-
-
-
 /* ----- FOOTER ----- */
 footer {
+  text-align: center;
   height: 30vh;
   color: white;
+  background-image: linear-gradient(to bottom, #000000, #0d0d0d, #161616, #1d1d1d, #252525);
 }
+
+

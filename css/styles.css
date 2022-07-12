@@ -11,7 +11,6 @@ body {
 }
 
 h1 {
-  padding-top: 7%;
   text-align: center;
   color: white;
 }
@@ -99,56 +98,74 @@ a {
 }
 
 /* ----- CAROUSEL ----- */
-.carousel {
-  display: grid;
-  grid-template-columns: repeat(2, 100%);
-  overflow: hidden;
-  scroll-behavior: smooth;
-}
-.carousel section {
-  width: 100%;
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(5, 25%);
-  margin: 20px 0;
-}
-.carousel section .item {
-  padding: 0 2px;
-  transition: 0.5s all;
-}
-.carousel section .item:hover {
-  margin: 0 40px;
-  transform: scale(1.2);
-}
-.carousel section .item img {
-  display: block;
-  cursor: pointer;
-  margin: auto;
-}
-.carousel section .arrow__btn {
-  position: absolute;
-  color: #fff;
-  text-decoration: none;
-  font-size: 6em;
-  background: rgb(0, 0, 0);
-  width: 80px;
-  padding: 20px;
-  text-align: center;
-  z-index: 1;
-}
-.carousel section .arrow__btn:nth-of-type(1) {
-  top: 0;
-  bottom: 0;
-  left: 0;
-  background: linear-gradient(-90deg, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);
-}
-.carousel section .arrow__btn:nth-of-type(2) {
-  top: 0;
-  bottom: 0;
-  right: 0;
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);
+.carousel-header {
+  margin-top: 7%;
 }
 
+.carousel {
+  color: white;
+}
+.carousel section {
+  flex-direction: row;
+}
+.carousel section.deactivate {
+  display: none;
+}
+.carousel section.fade-left {
+  animation: fade-left 1s;
+}
+.carousel section.fade-right {
+  animation: right 0.2s;
+}
+.carousel section .items {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+.carousel section .items button {
+  flex-basis: 5%;
+  cursor: pointer;
+  background-color: black;
+  border-color: black;
+  color: white;
+  font-size: 3rem;
+  padding: 2%;
+  transition: all 0.5s;
+}
+.carousel section .items button:hover {
+  color: gray;
+  transform: scale(1.2);
+}
+.carousel section .items .item {
+  flex-basis: 22.5%;
+  display: flex;
+  justify-content: center;
+}
+.carousel section .items .item img {
+  height: 100%;
+  transition: all 0.5s;
+  border-radius: 5px;
+}
+.carousel section .items .item img:hover {
+  transform: scale(1.2);
+}
+
+@keyframes fade-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+@keyframes fade-left {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
 /* ----- MODALE ----- */
 #modal.active {
   display: flex;
@@ -175,6 +192,7 @@ a {
 #modal.active .movie .info-left .image {
   height: 100%;
   border-radius: 5px;
+  border: 1px solid grey;
 }
 #modal.active .movie .info-right {
   display: flex;
@@ -243,8 +261,10 @@ a {
 
 /* ----- FOOTER ----- */
 footer {
+  text-align: center;
   height: 30vh;
   color: white;
+  background-image: linear-gradient(to bottom, #000000, #0d0d0d, #161616, #1d1d1d, #252525);
 }
 
 /*# sourceMappingURL=styles.css.map */
