@@ -69,10 +69,11 @@ a {
   cursor: pointer;
 }
 
-@media screen and (max-width: 844px) {
+@media all and (max-width: 844px) {
   .navbar.burger-menu {
     display: flex;
     flex-direction: column;
+    z-index: 2;
   }
   .navbar.burger-menu .logo {
     display: flex;
@@ -108,32 +109,6 @@ a {
   }
   .navbar .burger-icon {
     display: block;
-  }
-  .main-section .container {
-    position: relative;
-  }
-  .main-section .container .best-movie-info {
-    z-index: 1;
-  }
-  .main-section .container .image {
-    width: 100%;
-    opacity: 0.3;
-  }
-  .main-section .container .image img {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    margin: 0 auto;
-  }
-  .carousel .slides {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-  }
-  .carousel .slides .items .item {
-    display: flex;
-    align-items: center;
   }
 }
 /* ----- MAIN SECTION ----- */
@@ -174,8 +149,27 @@ a {
   cursor: pointer;
 }
 
+@media all and (max-width: 844px) {
+  .main-section .container {
+    position: relative;
+  }
+  .main-section .container .best-movie-info {
+    z-index: 1;
+  }
+  .main-section .container .image {
+    width: 100%;
+    opacity: 0.3;
+  }
+  .main-section .container .image img {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: 0 auto;
+  }
+}
 /* ----- CAROUSEL ----- */
-.carousel-header {
+.carousel-header h1 {
   margin-top: 7%;
 }
 
@@ -223,6 +217,17 @@ a {
   filter: drop-shadow(0 0 0.75rem white);
 }
 
+@media all and (max-width: 844px) {
+  .carousel .slides {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+  .carousel .slides .items .item {
+    display: flex;
+    align-items: center;
+  }
+}
 /* ----- MODALE ----- */
 #modal.active {
   display: flex;
@@ -254,6 +259,8 @@ a {
 #modal.active .movie .info-right {
   display: flex;
   flex-direction: column;
+  flex-wrap: nowrap;
+  overflow-y: auto;
   padding: 10px;
 }
 #modal.active .movie .info-right .header {
@@ -316,6 +323,11 @@ a {
   display: none;
 }
 
+@media all and (max-width: 844px) {
+  #modal .movie .info-left {
+    display: none;
+  }
+}
 /* ----- FOOTER ----- */
 footer {
   text-align: center;
