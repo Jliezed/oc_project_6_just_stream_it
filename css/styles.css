@@ -58,7 +58,84 @@ a {
 .navbar .nav-items .nav-item a {
   color: white;
 }
+.navbar .burger-icon {
+  color: white;
+  padding: 15px;
+  font-size: 2rem;
+  display: none;
+}
+.navbar .burger-icon:hover {
+  color: gray;
+  cursor: pointer;
+}
 
+@media screen and (max-width: 844px) {
+  .navbar.burger-menu {
+    display: flex;
+    flex-direction: column;
+  }
+  .navbar.burger-menu .logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+  }
+  .navbar.burger-menu .logo .logo-icon {
+    flex-basis: 80%;
+  }
+  .navbar.burger-menu .logo .burger-icon {
+    flex-basis: 20%;
+    text-align: center;
+  }
+  .navbar.burger-menu .deactivate {
+    display: none;
+  }
+  .navbar.burger-menu .burger-nav {
+    width: 100%;
+    opacity: 0.9;
+  }
+  .navbar.burger-menu .burger-nav .nav-items {
+    display: flex;
+    flex-direction: column;
+  }
+  .navbar.burger-menu .burger-nav .nav-items .nav-item {
+    flex-basis: 100%;
+    margin: 0;
+    padding: 2%;
+  }
+  .navbar.burger-menu .burger-nav .nav-items .nav-item:hover {
+    background-color: #4d4d4d;
+  }
+  .navbar .burger-icon {
+    display: block;
+  }
+  .main-section .container {
+    position: relative;
+  }
+  .main-section .container .best-movie-info {
+    z-index: 1;
+  }
+  .main-section .container .image {
+    width: 100%;
+    opacity: 0.3;
+  }
+  .main-section .container .image img {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: 0 auto;
+  }
+  .carousel .slides {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+  .carousel .slides .items .item {
+    display: flex;
+    align-items: center;
+  }
+}
 /* ----- MAIN SECTION ----- */
 .main-section .container {
   display: flex;
@@ -111,12 +188,6 @@ a {
 .carousel section.deactivate {
   display: none;
 }
-.carousel section.fade-left {
-  animation: fade-left 1s;
-}
-.carousel section.fade-right {
-  animation: right 0.2s;
-}
 .carousel section .items {
   display: flex;
   flex-direction: row;
@@ -145,27 +216,13 @@ a {
   height: 100%;
   transition: all 0.5s;
   border-radius: 5px;
+  border: 1px solid #313131;
 }
 .carousel section .items .item img:hover {
   transform: scale(1.2);
+  filter: drop-shadow(0 0 0.75rem white);
 }
 
-@keyframes fade-right {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0%);
-  }
-}
-@keyframes fade-left {
-  from {
-    transform: translateX(0%);
-  }
-  to {
-    transform: translateX(100%);
-  }
-}
 /* ----- MODALE ----- */
 #modal.active {
   display: flex;

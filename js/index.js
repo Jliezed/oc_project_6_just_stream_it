@@ -11,6 +11,10 @@ document.addEventListener("scroll", function () {
     }
 })
 
+// Burger Menu Toggle
+document.querySelector(".burger-icon").addEventListener("click", function () {
+    document.querySelector(".burger-nav").classList.toggle("deactivate");
+})
 
 // Modal Closing Button
 document.getElementById("close").addEventListener("click", function () {

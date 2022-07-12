@@ -63,6 +63,122 @@ a {
       }
     }
   }
+
+  & .burger-icon {
+    color: white;
+    padding: 15px;
+    font-size: 2rem;
+    display: none;
+
+    &:hover {
+      color: darken(white, 50%);
+      cursor: pointer;
+    }
+  }
+}
+
+@media screen and (max-width: 844px) {
+  .navbar {
+    &.burger-menu {
+      display: flex;
+      flex-direction: column;
+
+      & .logo {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+
+        & .logo-icon {
+          flex-basis: 80%;
+        }
+
+        & .burger-icon {
+          flex-basis: 20%;
+          text-align: center;
+        }
+      }
+
+      & .deactivate {
+        display: none;
+      }
+
+      & .burger-nav {
+        width: 100%;
+        opacity: 0.9;
+
+        & .nav-items {
+          display: flex;
+          flex-direction: column;
+
+          & .nav-item {
+            flex-basis: 100%;
+            margin: 0;
+            padding: 2%;
+
+            &:hover {
+              background-color: lighten(black, 30%);
+            }
+          }
+        }
+      }
+    }
+
+    & .nav-items {
+      & .nav-item {
+        //display: none;
+      }
+    }
+
+    & .burger-icon {
+      display: block;
+    }
+  }
+  .main-section {
+    & .container {
+      position: relative;
+
+      & .best-movie-info {
+        z-index: 1;
+      }
+
+      & .image {
+        width: 100%;
+
+        opacity: 0.3;
+
+        & img {
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+  .carousel {
+    & .slides {
+
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+
+      & .items {
+        & .arrow {
+
+        }
+
+        & .item {
+          display: flex;
+          align-items: center;
+          & img {
+          }
+        }
+      }
+    }
+  }
+
 }
 
 /* ----- MAIN SECTION ----- */
@@ -118,17 +234,14 @@ a {
 
 .carousel {
   color: white;
+
   & section {
     flex-direction: row;
+
     &.deactivate {
       display: none;
     }
-    &.fade-left {
-      animation: fade-left 1s;
-    }
-    &.fade-right {
-      animation: right 0.2s;
-    }
+
     & .items {
       display: flex;
       flex-direction: row;
@@ -143,6 +256,7 @@ a {
         font-size: 3rem;
         padding: 2%;
         transition: all 0.5s;
+
         &:hover {
           color: darken(white, 50%);
           transform: scale(1.2);
@@ -158,8 +272,11 @@ a {
           height: 100%;
           transition: all 0.5s;
           border-radius: 5px;
+          border: 1px solid #313131;
+
           &:hover {
             transform: scale(1.2);
+            filter: drop-shadow(0 0 0.75rem white);
 
           }
         }
@@ -168,26 +285,6 @@ a {
 
   }
 }
-
-@keyframes fade-right {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0%);
-  }
-}
-
-@keyframes fade-left {
-  from {
-    transform: translateX(0%);
-  }
-  to {
-    transform: translateX(100%);
-  }
-}
-
-
 
 /* ----- MODALE ----- */
 #modal {
