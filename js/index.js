@@ -1,6 +1,6 @@
 import {navabarTransparent, menuBurger} from "./components/navbar.js";
 import {closingButtonModal, populateModal, createModalMainButton, createModalCarousel} from "./components/modal.js";
-import {toggleCarousel, populateCarousel} from "./components/carousel.js";
+import {arrowCarousel, populateCarousel} from "./components/carousel.js";
 import {getImagesUrls, movieInfo} from "./components/api_calls.js";
 import {populateMainSection} from "./components/main_section.js";
 
@@ -8,59 +8,9 @@ import {populateMainSection} from "./components/main_section.js";
 navabarTransparent();
 menuBurger();
 closingButtonModal();
-toggleCarousel();
 
 
-function arrowCarousel(carouselId) {
-    let carouselDiv = document.getElementById(carouselId);
-    // Select all slides
-    const slider = carouselDiv.querySelectorAll(".slide");
 
-    // loop through slides and set each slides translateX
-    slider.forEach((slide, indx) => {
-        slide.style.transform = `translateX(${indx * 100}%)`;
-    });
-
-    // select next slide button
-    const nextSlide = carouselDiv.querySelector(".btn-right");
-
-    // current slide counter
-    let curSlide = 0;
-    // maximum number of slides
-    let maxSlide = slider.length - 1;
-
-    // add event listener and navigation functionality
-    nextSlide.addEventListener("click", function () {
-        // check if current slide is the last and reset current slide
-        if (curSlide === maxSlide) {
-            curSlide = 0;
-        } else {
-            curSlide++;
-        }
-
-        //   move slide by -100%
-        slider.forEach((slide, indx) => {
-            slide.style.transform = `translateX(${100 * (indx - curSlide)}%)`;
-        });
-    });
-
-    // select next slide button
-    const prevSlide = carouselDiv.querySelector(".btn-left");
-
-    // add event listener and navigation functionality
-    prevSlide.addEventListener("click", function () {
-        // check if current slide is the first and reset current slide to last
-        if (curSlide === 0) {
-            curSlide = maxSlide;
-        } else {
-            curSlide--;
-        }
-        //   move slide by 100%
-        slider.forEach((slide, indx) => {
-            slide.style.transform = `translateX(${100 * (indx - curSlide)}%)`;
-        });
-    });
-}
 
 
 // Launch functions
@@ -87,8 +37,6 @@ async function mergeFunction() {
     console.log("4");
     const modalMainButton = await createModalMainButton();
     console.log(modalMainButton);
-    arrowCarousel()
-
 }
 
 mergeFunction();

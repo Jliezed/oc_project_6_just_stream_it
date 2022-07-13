@@ -55,9 +55,9 @@ async function createModalMainButton() {
 
 // Function to open Modal and populate Movie Information
 async function createModalCarousel() {
-    let numberOfMoviesImages = document.querySelectorAll(".item img").length;
+    let numberOfMoviesImages = document.querySelectorAll(".slide img").length;
     for (let i = 0; i < numberOfMoviesImages; i++) {
-        document.querySelectorAll(".item img")[i].addEventListener("click", async function () {
+        document.querySelectorAll(".slide img")[i].addEventListener("click", async function () {
             // Retieve Data from API
             let imageId = this.alt;
             let movieData = await movieInfo(imageId);

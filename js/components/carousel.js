@@ -1,35 +1,6 @@
 // Carousel Toggle
 
-function toggleCarousel() {
-    let nbOfArrow = document.getElementsByClassName("arrow").length;
-    let arrows = document.getElementsByClassName("arrow");
-    for (let i = 0; i < nbOfArrow; i++) {
-        arrows[i].addEventListener("click", function (event) {
-            let arrowParentElement = arrows[i].parentElement.parentElement.parentElement;
-            let slides = arrowParentElement.getElementsByClassName("slides");
-            let nbOfSlides = arrowParentElement.getElementsByClassName("slides").length;
-            for (let i = 0; i < nbOfSlides; i++) {
-                slides[i].classList.toggle("deactivate");
-            }
 
-        })
-    }
-}
-
-
-// Function to populate a carousel using a list of URLs' images and the ID of the carousel to populate
-// async function populateCarousel(moviesUrlsId, carouselId) {
-//     let numberOfDivItem = document.querySelectorAll("#" + carouselId + " .item").length - 1;
-//
-//     for (let i = 0; i < numberOfDivItem; i++) {
-//         let getDiv = document.querySelectorAll("#" + carouselId + " .item")[i];
-//         let movieData = moviesUrlsId[i];
-//         let img = document.createElement("img");
-//         img.setAttribute("src", movieData.movieUrl);
-//         img.setAttribute("alt", movieData.movieId);
-//         getDiv.appendChild(img);
-//     }
-// }
 
 // POPULATE CAROUSEL FINAL VERSION
 async function populateCarousel(moviesUrlsId, carouselId) {
@@ -48,4 +19,55 @@ async function populateCarousel(moviesUrlsId, carouselId) {
     }
 }
 
-export {toggleCarousel, populateCarousel}
+function arrowCarousel(carouselId) {
+    let carouselDiv = document.getElementById(carouselId);
+    // Select all slides
+    const slider = carouselDiv.querySelectorAll(".slide");
+
+    // loop through slides and set each slides translateX
+    slider.forEach((slide, indx) => {
+        slide.style.transform = `translateX(${indx * 100}%)`;
+    });
+
+    // select next slide button
+    const nextSlide = carouselDiv.querySelector(".btn-right");
+
+    // current slide counter
+    let curSlide = 0;
+    // maximum number of slides
+    let maxSlide = slider.length - 1;
+
+    // add event listener and navigation functionality
+    nextSlide.addEventListener("click", function () {
+        // check if current slide is the last and reset current slide
+        if (curSlide === maxSlide) {
+            curSlide = 0;
+        } else {
+            curSlide++;
+        }
+
+        //   move slide by -100%
+        slider.forEach((slide, indx) => {
+            slide.style.transform = `translateX(${100 * (indx - curSlide)}%)`;
+        });
+    });
+
+    // select next slide button
+    const prevSlide = carouselDiv.querySelector(".btn-left");
+
+    // add event listener and navigation functionality
+    prevSlide.addEventListener("click", function () {
+        // check if current slide is the first and reset current slide to last
+        if (curSlide === 0) {
+            curSlide = maxSlide;
+        } else {
+            curSlide--;
+        }
+        //   move slide by 100%
+        slider.forEach((slide, indx) => {
+            slide.style.transform = `translateX(${100 * (indx - curSlide)}%)`;
+        });
+    });
+}
+
+export {arrowCarousel, populateCarousel}

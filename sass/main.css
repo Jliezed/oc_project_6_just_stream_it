@@ -27,7 +27,7 @@ a {
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.05));
   position: fixed;
   width: 100%;
-  z-index: 1;
+  z-index: 2;
 }
 .navbar--solid {
   background-color: rgba(0, 0, 0, 0.8);
@@ -276,72 +276,15 @@ footer {
     display: none;
   }
 }
-/* ----- CAROUSEL ----- */
-.carousel-header h1 {
-  margin-top: 7%;
-}
-
-.carousel {
-  color: white;
-}
-.carousel section {
-  flex-direction: row;
-}
-.carousel section.deactivate {
-  display: none;
-}
-.carousel section .items {
-  display: flex;
-  flex-direction: row;
-  height: 100%;
-}
-.carousel section .items button {
-  flex-basis: 5%;
-  cursor: pointer;
-  background-color: black;
-  border-color: black;
-  color: white;
-  font-size: 3rem;
-  padding: 2%;
-  transition: all 0.5s;
-}
-.carousel section .items button:hover {
-  color: gray;
-  transform: scale(1.2);
-}
-.carousel section .items .item {
-  flex-basis: 22.5%;
-  display: flex;
-  justify-content: center;
-}
-.carousel section .items .item img {
-  height: 100%;
-  transition: all 0.5s;
-  border-radius: 5px;
-  border: 1px solid #313131;
-}
-.carousel section .items .item img:hover {
-  transform: scale(1.2);
-  filter: drop-shadow(0 0 0.75rem white);
-}
-
-@media all and (max-width: 844px) {
-  .carousel .slides {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-  }
-  .carousel .slides .items .item {
-    display: flex;
-    align-items: center;
-  }
-}
-/* ----- TEST ----- */
+/* ----- SLIDER ----- */
 .carousel {
   scroll-behavior: smooth;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.carousel h1 {
+  margin-top: 7%;
 }
 .carousel .slider {
   height: 380px;
@@ -376,7 +319,7 @@ footer {
   padding: 10px;
   border: none;
   border-radius: 50%;
-  z-index: 10;
+  z-index: 1;
   cursor: pointer;
   background-color: #fff;
   font-size: 18px;
@@ -391,6 +334,18 @@ footer {
 .carousel .slider .btn-right {
   top: 45%;
   right: 2%;
+}
+
+@media all and (max-width: 844px) {
+  .carousel .slides {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+  .carousel .slides .items .item {
+    display: flex;
+    align-items: center;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
