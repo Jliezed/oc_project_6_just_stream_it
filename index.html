@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Just Stream It</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="sass/main.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,16 +27,16 @@
 	<div class="burger-nav deactivate">
 		<div class="nav-items">
 			<div class="nav-item">
-				<a href="#best-rated-movies">Home</a>
+				<a href="#carousel-best-rated-movies">Home</a>
 			</div>
 			<div class="nav-item">
-				<a href="#best-sci-fi-rated-movies">Best Science Fiction</a>
+				<a href="#carousel-best-sci-fi-rated-movies">Best Science Fiction</a>
 			</div>
 			<div class="nav-item">
-				<a href="#best-animation-rated-movies">Best Animation</a>
+				<a href="#carousel-best-animation-rated-movies">Best Animation</a>
 			</div>
 			<div class="nav-item">
-				<a href="#best-comedy-rated-movies">Best Comedy</a>
+				<a href="#carousel-best-comedy-rated-movies">Best Comedy</a>
 			</div>
 		</div>
 	</div>
@@ -61,121 +61,41 @@
 </section>
 
 
-<-- CAROUSEL HEADER -->
-<div class="carousel-header" id="best-rated-movies">
+<-- CAROUSEL -->
+<section class="carousel">
 	<h1>Best Rated Movies</h1>
-</div>
-<-- CAROUSEL -->
-<div id="carousel-best-rated-movies" class="carousel">
-	<section class="slides">
-		<div class="items">
-			<button class="arrow"><</button>
-			<div class="item"></div>
-			<div class="item"></div>
-			<div class="item"></div>
-			<div class="item"></div>
-			<button class="arrow">></button>
-		</div>
-	</section>
-	<section class="slides deactivate">
-		<div class="items">
-			<button class="arrow"><</button>
-			<div class="item"></div>
-			<div class="item"></div>
-			<div class="item"></div>
-			<div class="item"></div>
-			<button class="arrow">></button>
-		</div>
-	</section>
-</div>
+	<div class="slider" id="carousel-best-rated-movies">
+		<button class="btn btn-left"><</button>
+		<button class="btn btn-right">></button>
+	</div>
+</section>
 
-<-- CAROUSEL HEADER -->
-<div class="carousel-header" id="best-sci-fi-rated-movies">
+<-- CAROUSEL -->
+<section class="carousel">
 	<h1>Best Science Fiction Rated Movies</h1>
-</div>
-<-- CAROUSEL -->
-<div id="carousel-best-sci-fi-rated-movies" class="carousel">
-	<section class="slides">
-		<div class="items">
-			<button class="arrow"><</button>
-			<div class="item"></div>
-			<div class="item"></div>
-			<div class="item"></div>
-			<div class="item"></div>
-			<button class="arrow">></button>
-		</div>
-	
-	</section>
-	<section class="slides deactivate">
-		<div class="items">
-			<button class="arrow"><</button>
-			<div class="item"></div>
-			<div class="item"></div>
-			<div class="item"></div>
-			<div class="item"></div>
-			<button class="arrow">></button>
-		</div>
-	</section>
-</div>
+	<div class="slider" id="carousel-best-sci-fi-rated-movies">
+		<button class="btn btn-left"><</button>
+		<button class="btn btn-right">></button>
+	</div>
+</section>
 
-<-- CAROUSEL HEADER -->
-<div class="carousel-header" id="best-animation-rated-movies">
+<-- CAROUSEL -->
+<section class="carousel">
 	<h1>Best Animation Rated Movies</h1>
-</div>
+	<div class="slider" id="carousel-best-animation-rated-movies">
+		<button class="btn btn-left"><</button>
+		<button class="btn btn-right">></button>
+	</div>
+</section>
+
 <-- CAROUSEL -->
-<div id="carousel-best-animation-rated-movies" class="carousel">
-	<section class="slides">
-		<div class="items">
-			<button class="arrow"><</button>
-			<div class="item"></div>
-			<div class="item"></div>
-			<div class="item"></div>
-			<div class="item"></div>
-			<button class="arrow">></button>
-		</div>
-	
-	</section>
-	<section class="slides deactivate">
-		<div class="items">
-			<button class="arrow"><</button>
-			<div class="item"></div>
-			<div class="item"></div>
-			<div class="item"></div>
-			<div class="item"></div>
-			<button class="arrow">></button>
-		</div>
-	</section>
-</div>
-
-
-<-- CAROUSEL HEADER -->
-<div class="carousel-header" id="best-comedy-rated-movies">
+<section class="carousel">
 	<h1>Best Comedy Rated Movies</h1>
-</div>
-<-- CAROUSEL -->
-<div id="carousel-best-comedy-rated-movies" class="carousel">
-	<section class="slides">
-		<div class="items">
-			<button class="arrow"><</button>
-			<div class="item"></div>
-			<div class="item"></div>
-			<div class="item"></div>
-			<div class="item"></div>
-			<button class="arrow">></button>
-		</div>
-	
-	</section>
-	<section class="slides deactivate">
-		<div class="items">
-			<button class="arrow"><</button>
-			<div class="item"></div>
-			<div class="item"></div>
-			<div class="item"></div>
-			<div class="item"></div>
-			<button class="arrow">></button>
-		</div>
-	</section>
-</div>
+	<div class="slider" id="carousel-best-comedy-rated-movies">
+		<button class="btn btn-left"><</button>
+		<button class="btn btn-right">></button>
+	</div>
+</section>
 
 
 <-- MODAL -->
@@ -216,7 +136,7 @@
 	</div>
 </footer>
 
-<script type="text/javascript" src="js/index.js"></script>
+<script type="module" src="js/index.js"></script>
 </body>
 
 </html>

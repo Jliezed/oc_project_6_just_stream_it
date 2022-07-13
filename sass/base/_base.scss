@@ -1,0 +1,22 @@
+@import "../abstracts/variables";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Roboto Condensed', 'Montserrat', 'Roboto', 'Titillium Web', sans-serif;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  background-color: $colour-primary;
+}
+
+h1 {
+  text-align: center;
+  color: $colour-secondary;
+}
+
+a {
+  text-decoration: none;
+}

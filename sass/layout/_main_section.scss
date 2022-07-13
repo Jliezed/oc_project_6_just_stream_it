@@ -1,0 +1,74 @@
+@import "../abstracts/variables";
+
+
+/* ----- MAIN SECTION ----- */
+.main-section {
+  & .container {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    background-image: radial-gradient(circle, #353536, #2c2c2d, #232324, #1b1b1b, #121212, #0d0d0d, #070707, #000000, #000000, #000000, #000000, #000000);
+
+    & .image {
+      padding: 5%;
+
+      & img {
+        height: 85vh;
+        border-radius: 5px;
+        opacity: 0.8;
+      }
+    }
+
+    & .best-movie-info {
+      padding: 7%;
+      color: $colour-secondary;
+
+      & h2 {
+        font-size: xxx-large;
+      }
+
+      & button {
+        border: none;
+        padding: 10px 50px;
+        text-decoration: none;
+        text-align: center;
+        display: inline-block;
+        font-size: large;
+        border-radius: 10px;
+        background-color: #e7e7e7;
+
+        &:hover {
+          background-color: darken(#e7e7e7, 50%);
+          color: $colour-secondary;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 844px) {
+  .main-section {
+    & .container {
+      position: relative;
+
+      & .best-movie-info {
+        z-index: 1;
+      }
+
+      & .image {
+        width: 100%;
+
+        opacity: 0.3;
+
+        & img {
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}

@@ -168,66 +168,14 @@ a {
     margin: 0 auto;
   }
 }
-/* ----- CAROUSEL ----- */
-.carousel-header h1 {
-  margin-top: 7%;
+/* ----- FOOTER ----- */
+footer {
+  text-align: center;
+  height: 30vh;
+  color: white;
+  background-image: linear-gradient(to bottom, #000000, #0d0d0d, #161616, #1d1d1d, #252525);
 }
 
-.carousel {
-  color: white;
-}
-.carousel section {
-  flex-direction: row;
-}
-.carousel section.deactivate {
-  display: none;
-}
-.carousel section .items {
-  display: flex;
-  flex-direction: row;
-  height: 100%;
-}
-.carousel section .items button {
-  flex-basis: 5%;
-  cursor: pointer;
-  background-color: black;
-  border-color: black;
-  color: white;
-  font-size: 3rem;
-  padding: 2%;
-  transition: all 0.5s;
-}
-.carousel section .items button:hover {
-  color: gray;
-  transform: scale(1.2);
-}
-.carousel section .items .item {
-  flex-basis: 22.5%;
-  display: flex;
-  justify-content: center;
-}
-.carousel section .items .item img {
-  height: 100%;
-  transition: all 0.5s;
-  border-radius: 5px;
-  border: 1px solid #313131;
-}
-.carousel section .items .item img:hover {
-  transform: scale(1.2);
-  filter: drop-shadow(0 0 0.75rem white);
-}
-
-@media all and (max-width: 844px) {
-  .carousel .slides {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-  }
-  .carousel .slides .items .item {
-    display: flex;
-    align-items: center;
-  }
-}
 /* ----- MODALE ----- */
 #modal.active {
   display: flex;
@@ -328,12 +276,121 @@ a {
     display: none;
   }
 }
-/* ----- FOOTER ----- */
-footer {
-  text-align: center;
-  height: 30vh;
-  color: white;
-  background-image: linear-gradient(to bottom, #000000, #0d0d0d, #161616, #1d1d1d, #252525);
+/* ----- CAROUSEL ----- */
+.carousel-header h1 {
+  margin-top: 7%;
 }
 
-/*# sourceMappingURL=styles.css.map */
+.carousel {
+  color: white;
+}
+.carousel section {
+  flex-direction: row;
+}
+.carousel section.deactivate {
+  display: none;
+}
+.carousel section .items {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+.carousel section .items button {
+  flex-basis: 5%;
+  cursor: pointer;
+  background-color: black;
+  border-color: black;
+  color: white;
+  font-size: 3rem;
+  padding: 2%;
+  transition: all 0.5s;
+}
+.carousel section .items button:hover {
+  color: gray;
+  transform: scale(1.2);
+}
+.carousel section .items .item {
+  flex-basis: 22.5%;
+  display: flex;
+  justify-content: center;
+}
+.carousel section .items .item img {
+  height: 100%;
+  transition: all 0.5s;
+  border-radius: 5px;
+  border: 1px solid #313131;
+}
+.carousel section .items .item img:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 0.75rem white);
+}
+
+@media all and (max-width: 844px) {
+  .carousel .slides {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+  .carousel .slides .items .item {
+    display: flex;
+    align-items: center;
+  }
+}
+/* ----- TEST ----- */
+.carousel {
+  scroll-behavior: smooth;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.carousel .slider {
+  height: 380px;
+  width: 95%;
+  position: relative;
+  overflow: hidden;
+}
+.carousel .slider .slide {
+  position: absolute;
+  width: 25%;
+  height: 90%;
+  transition: all 0.5s;
+  display: flex;
+  justify-content: center;
+  padding: 30px 0;
+}
+.carousel .slider .slide img {
+  height: 95%;
+  border-radius: 5px;
+  transition: all 0.5s;
+  scroll-behavior: smooth;
+  cursor: pointer;
+}
+.carousel .slider .slide img:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 0.75rem white);
+}
+.carousel .slider .btn {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  border: none;
+  border-radius: 50%;
+  z-index: 10;
+  cursor: pointer;
+  background-color: #fff;
+  font-size: 18px;
+}
+.carousel .slider .btn.btn:active {
+  transform: scale(1.1);
+}
+.carousel .slider .btn-left {
+  top: 45%;
+  left: 2%;
+}
+.carousel .slider .btn-right {
+  top: 45%;
+  right: 2%;
+}
+
+/*# sourceMappingURL=main.css.map */
