@@ -1,7 +1,7 @@
 /* ---------- NAVBAR & CLOSING BUTTON ---------- */
 
 // Navbar Transparent to Solid on scroll
-function navabarTransparent() {
+function navbarTransparent() {
     document.addEventListener("scroll", function () {
         let navbar = document.querySelector(".navbar");
         let scrollDown = window.scrollY;
@@ -23,4 +23,4 @@ function menuBurger() {
 }
 
 
-export {navabarTransparent, menuBurger};
+export {navbarTransparent, menuBurger};

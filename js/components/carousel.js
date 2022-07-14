@@ -1,8 +1,5 @@
-// Carousel Toggle
 
-
-
-// POPULATE CAROUSEL FINAL VERSION
+// Function to populate Carousel from Movies' URLs
 async function populateCarousel(moviesUrlsId, carouselId) {
     for (let i = 0; i < moviesUrlsId.length; i++) {
         let divSlide = document.createElement("div");
@@ -19,6 +16,7 @@ async function populateCarousel(moviesUrlsId, carouselId) {
     }
 }
 
+// Function to activate arrows of Carousel
 function arrowCarousel(carouselId) {
     let carouselDiv = document.getElementById(carouselId);
     // Select all slides
@@ -70,4 +68,14 @@ function arrowCarousel(carouselId) {
     });
 }
 
-export {arrowCarousel, populateCarousel}
+// Function to activate the function Arrow Carousel
+function activeArrowCarousel() {
+    let nbOfCarousels = document.querySelectorAll("section.carousel").length;
+    for (let i = 0 ; i <nbOfCarousels; i++) {
+        let carouselId = document.querySelectorAll("section.carousel")[i];
+        let carouselIdName = carouselId.getAttribute("id");
+        arrowCarousel(carouselIdName);
+    }
+}
+
+export {activeArrowCarousel, arrowCarousel, populateCarousel}

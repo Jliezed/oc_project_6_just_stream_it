@@ -1,5 +1,4 @@
 import {movieInfo} from "./api_calls.js";
-/* ---------- MODAL ---------- */
 
 // Modal Closing Button
 function closingButtonModal() {
