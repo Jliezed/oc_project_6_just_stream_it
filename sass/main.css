@@ -158,8 +158,9 @@ a {
   .main-section .container .best-movie-info {
     z-index: 1;
   }
-  .main-section .container .image {
+  .main-section .container .image img {
     width: 100%;
+    height: 100%;
     opacity: 0.3;
   }
   .main-section .container .image img {
@@ -233,6 +234,9 @@ footer {
   flex-direction: row;
   justify-content: space-around;
 }
+#modal.active .movie .info-right .first-level .sub-level {
+  flex-grow: 1;
+}
 #modal.active .movie .info-right .first-level .genre {
   flex-basis: 33%;
 }
@@ -284,15 +288,28 @@ footer {
     display: flex;
     flex-direction: column;
   }
+  #modal.active .movie .info-left {
+    order: 0;
+  }
   #modal.active .movie .info-left .image {
     height: 80px;
+  }
+  #modal.active .movie .info-right {
+    order: 0;
+  }
+  #modal.active .movie .info-right .header .title {
+    font-size: x-large;
+  }
+  #modal.active .movie .info-right .header .imdb-score {
+    font-size: medium;
   }
   #modal.active .movie .info-right .first-level {
     display: flex;
     flex-direction: column;
   }
-  #modal.active .movie .close {
+  #modal.active .movie div {
     order: -1;
+    float: left;
   }
 }
 @media all and (max-width: 1023px) and (min-width: 768px) {
@@ -306,6 +323,9 @@ footer {
   #modal.active .movie .info-right .first-level {
     display: flex;
     flex-direction: column;
+  }
+  #modal.active .movie .close {
+    order: -1;
   }
 }
 /* ----- SLIDER ----- */

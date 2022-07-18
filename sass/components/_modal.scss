@@ -63,6 +63,10 @@
           flex-direction: row;
           justify-content: space-around;
 
+          & .sub-level {
+            flex-grow: 1;
+          }
+
           & .genre {
             flex-basis: 33%;
           }
@@ -130,7 +134,7 @@
         flex-direction: column;
 
         & .info-left {
-
+          order: 0;
           & .image {
             height: 80px;
 
@@ -138,6 +142,16 @@
         }
 
         & .info-right {
+          order: 0;
+          & .header {
+            & .title {
+              font-size: x-large;
+            }
+
+            & .imdb-score {
+              font-size: medium;
+            }
+          }
 
           & .first-level {
             display: flex;
@@ -146,13 +160,19 @@
           }
         }
 
-        & .close {
+        & div {
           order: -1;
+          float: left;
 
-          &:hover {
+          & .close {
 
+
+            &:hover {
+
+            }
           }
         }
+
 
       }
     }
@@ -177,6 +197,14 @@
           & .first-level {
             display: flex;
             flex-direction: column;
+
+          }
+        }
+
+        & .close {
+          order: -1;
+
+          &:hover {
 
           }
         }
