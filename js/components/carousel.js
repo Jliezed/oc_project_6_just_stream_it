@@ -1,3 +1,16 @@
+let maxScrollSlider;
+
+function checkMediaQuery() {
+    if (window.matchMedia("(max-width: 676px)").matches) {
+        return maxScrollSlider = 2;
+    } else if (window.matchMedia("(max-width: 1023)").matches) {
+        return maxScrollSlider = 3;
+    } else {
+        return maxScrollSlider = 4;
+    }
+}
+
+checkMediaQuery()
 
 // Function to populate Carousel from Movies' URLs
 async function populateCarousel(moviesUrlsId, carouselId) {
@@ -33,8 +46,8 @@ function arrowCarousel(carouselId) {
     // current slide counter
     let curSlide = 0;
     // maximum number of slides
-    let maxSlide = slider.length - 1;
-
+    let maxSlide = slider.length - maxScrollSlider;
+    console.log(slider.length)
     // add event listener and navigation functionality
     nextSlide.addEventListener("click", function () {
         // check if current slide is the last and reset current slide

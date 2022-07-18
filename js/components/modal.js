@@ -41,12 +41,10 @@ function populateModal(movieData) {
 }
 
 // Function create and populate Modal of the main section button
-async function createModalMainButton() {
+async function createModalMainButton(moviesUrlsId) {
     document.querySelector(".play").addEventListener("click", async function () {
-        let bestMovieMainSectionDiv = document.getElementById("best-movie-image");
-        let bestMovieId = bestMovieMainSectionDiv.getAttribute("alt");
 
-        let movieData = await movieInfo(bestMovieId);
+        let movieData = await movieInfo(moviesUrlsId[0].movieId);
 
         populateModal(movieData);
     })

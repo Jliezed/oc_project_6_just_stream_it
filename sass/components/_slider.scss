@@ -4,9 +4,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
   & h1 {
     margin-top: 7%;
   }
+
   & .slider {
     height: 380px;
     width: 95%;
@@ -66,26 +68,37 @@
   }
 }
 
-@media all and (max-width: 844px) {
+@media all and (max-width: 767px) {
   .carousel {
-    & .slides {
 
-      display: flex;
-      flex-wrap: nowrap;
+    & .slider {
+      height: 280px;
       overflow-x: auto;
 
-      & .items {
-        & .arrow {
+      & .slide {
+        width: 50%;
+      }
 
-        }
+      .btn {
+        display: none;
+      }
+    }
+  }
+}
 
-        & .item {
-          display: flex;
-          align-items: center;
+@media all and (max-width: 1023px) and (min-width: 768px) {
+  .carousel {
 
-          & img {
-          }
-        }
+    & .slider {
+      overflow-x: auto;
+
+      & .slide {
+        width: 33%;
+      }
+
+      .btn {
+        display: none;
+
       }
     }
   }

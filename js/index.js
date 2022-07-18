@@ -14,22 +14,24 @@ closingButtonModal();
 // Launch functions
 async function mergeFunctions() {
     // Get Images URLs from API
-    const bestMoviesImagesUrls = await getImagesUrls("http://localhost:8000/api/v1/titles/?sort_by=-votes,-imdb_score&page_size=7");
+    let bestMoviesImagesUrls = await getImagesUrls("http://localhost:8000/api/v1/titles/?sort_by=-votes,-imdb_score&page_size=8");
+    let bestMovieMainSection = bestMoviesImagesUrls.slice(0);
+    let bestMovieOtherForCarousel = bestMoviesImagesUrls.slice(1,8)
     const bestSciFiMoviesImagesUrls = await getImagesUrls("http://localhost:8000/api/v1/titles/?sort_by=-votes,-imdb_score&genre=Sci-Fi&page_size=7");
     const bestAnimationMoviesImagesUrls = await getImagesUrls("http://localhost:8000/api/v1/titles/?sort_by=-votes,-imdb_score&genre=Animation&page_size=7");
     const bestComedyImagesUrls = await getImagesUrls("http://localhost:8000/api/v1/titles/?sort_by=-votes,-imdb_score&genre=Comedy&page_size=7");
     // Populate Carousels
-    await populateCarousel(bestMoviesImagesUrls, "carousel-best-rated-movies");
+    await populateCarousel(bestMovieOtherForCarousel, "carousel-best-rated-movies");
     await populateCarousel(bestSciFiMoviesImagesUrls, "carousel-best-sci-fi-rated-movies");
     await populateCarousel(bestAnimationMoviesImagesUrls, "carousel-best-animation-rated-movies");
     await populateCarousel(bestComedyImagesUrls, "carousel-best-comedy-rated-movies");
     // Populate Main Section Image
-    await populateMainSection();
+    await populateMainSection(bestMoviesImagesUrls);
     // Active arrows of all carousels
     activeArrowCarousel();
     // Active Modal
     await createModalCarousel();
-    await createModalMainButton();
+    await createModalMainButton(bestMovieMainSection);
 }
 
 mergeFunctions();

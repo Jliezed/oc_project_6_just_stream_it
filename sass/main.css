@@ -69,19 +69,21 @@ a {
   cursor: pointer;
 }
 
-@media all and (max-width: 844px) {
+@media all and (max-width: 767px) {
   .navbar.burger-menu {
     display: flex;
     flex-direction: column;
     z-index: 2;
   }
   .navbar.burger-menu .logo {
+    padding: 0;
     display: flex;
     flex-direction: row;
     align-items: center;
     width: 100%;
   }
   .navbar.burger-menu .logo .logo-icon {
+    padding: 15px;
     flex-basis: 80%;
   }
   .navbar.burger-menu .logo .burger-icon {
@@ -271,9 +273,39 @@ footer {
   display: none;
 }
 
-@media all and (max-width: 844px) {
-  #modal .movie .info-left {
-    display: none;
+@media all and (max-width: 767px) {
+  #modal.active {
+    overflow-y: auto;
+    height: 70%;
+    left: 5%;
+    width: 80%;
+  }
+  #modal.active .movie {
+    display: flex;
+    flex-direction: column;
+  }
+  #modal.active .movie .info-left .image {
+    height: 80px;
+  }
+  #modal.active .movie .info-right .first-level {
+    display: flex;
+    flex-direction: column;
+  }
+  #modal.active .movie .close {
+    order: -1;
+  }
+}
+@media all and (max-width: 1023px) and (min-width: 768px) {
+  #modal.active {
+    overflow-y: auto;
+    height: 600px;
+  }
+  #modal.active .movie .info-left .image {
+    height: 80px;
+  }
+  #modal.active .movie .info-right .first-level {
+    display: flex;
+    flex-direction: column;
   }
 }
 /* ----- SLIDER ----- */
@@ -336,15 +368,27 @@ footer {
   right: 2%;
 }
 
-@media all and (max-width: 844px) {
-  .carousel .slides {
-    display: flex;
-    flex-wrap: nowrap;
+@media all and (max-width: 767px) {
+  .carousel .slider {
+    height: 280px;
     overflow-x: auto;
   }
-  .carousel .slides .items .item {
-    display: flex;
-    align-items: center;
+  .carousel .slider .slide {
+    width: 50%;
+  }
+  .carousel .slider .btn {
+    display: none;
+  }
+}
+@media all and (max-width: 1023px) and (min-width: 768px) {
+  .carousel .slider {
+    overflow-x: auto;
+  }
+  .carousel .slider .slide {
+    width: 33%;
+  }
+  .carousel .slider .btn {
+    display: none;
   }
 }
 
