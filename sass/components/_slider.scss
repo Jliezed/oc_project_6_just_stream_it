@@ -70,6 +70,9 @@
 
 @media all and (max-width: 767px) {
   .carousel {
+    & h1 {
+      margin-top: 17%;
+    }
 
     & .slider {
       height: 280px;
@@ -88,6 +91,9 @@
 
 @media all and (max-width: 1023px) and (min-width: 768px) {
   .carousel {
+    & h1 {
+      margin-top: 10%;
+    }
 
     & .slider {
       overflow-x: auto;
