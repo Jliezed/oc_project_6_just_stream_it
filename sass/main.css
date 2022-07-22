@@ -10,9 +10,10 @@ body {
   background-color: black;
 }
 
-h1 {
+h3 {
   text-align: center;
   color: white;
+  font-size: x-large;
 }
 
 a {
@@ -335,7 +336,7 @@ footer {
   flex-direction: column;
   align-items: center;
 }
-.carousel h1 {
+.carousel h3 {
   margin-top: 7%;
 }
 .carousel .slider {
@@ -389,7 +390,7 @@ footer {
 }
 
 @media all and (max-width: 767px) {
-  .carousel h1 {
+  .carousel h3 {
     margin-top: 17%;
   }
   .carousel .slider {
@@ -404,7 +405,7 @@ footer {
   }
 }
 @media all and (max-width: 1023px) and (min-width: 768px) {
-  .carousel h1 {
+  .carousel h3 {
     margin-top: 10%;
   }
   .carousel .slider {

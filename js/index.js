@@ -5,7 +5,6 @@ import {populateMainSection} from "./components/main_section.js";
 import {closingButtonModal, createModalMainButton, createModalCarousel} from "./components/modal.js";
 
 
-
 navbarTransparent();
 menuBurger();
 closingButtonModal();
@@ -16,7 +15,7 @@ async function mergeFunctions() {
     // Get Images URLs from API
     let bestMoviesImagesUrls = await getImagesUrls("http://localhost:8000/api/v1/titles/?sort_by=-votes,-imdb_score&page_size=8");
     let bestMovieMainSection = bestMoviesImagesUrls.slice(0);
-    let bestMovieOtherForCarousel = bestMoviesImagesUrls.slice(1,8)
+    let bestMovieOtherForCarousel = bestMoviesImagesUrls.slice(1, 8)
     const bestSciFiMoviesImagesUrls = await getImagesUrls("http://localhost:8000/api/v1/titles/?sort_by=-votes,-imdb_score&genre=Sci-Fi&page_size=7");
     const bestAnimationMoviesImagesUrls = await getImagesUrls("http://localhost:8000/api/v1/titles/?sort_by=-votes,-imdb_score&genre=Animation&page_size=7");
     const bestComedyImagesUrls = await getImagesUrls("http://localhost:8000/api/v1/titles/?sort_by=-votes,-imdb_score&genre=Comedy&page_size=7");
