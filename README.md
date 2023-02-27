@@ -8,74 +8,46 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-
+[![oc][oc-project-shield]][oc-project-url]
+[![web-development][web-development-shield]][web-development-url]
+[![responsive][responsive-design-shield]][responsive-design-url]
+[![fetch][fetch-api-shield]][fetch-api-url]
+[![async][async-await-shield]][async-await-url]
 
 
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
 
-<h3 align="center">OC - PROJECT N°6 - User Interface for Python web application</h3>
+<h1 align="center">OC - PROJECT N°6 - User Interface for Python web application</h1>
 
   <p align="center">
-    Movies web application listing top rated movies for different categories (science fiction, animation, comedy). Data retrieve from an API (https://github.com/OpenClassrooms-Student-Center/OCMovies-API-EN-FR)
-    <br/>
-    <a href="https://github.com/Jliezed/oc_project_6_just_stream_it"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/Jliezed/oc_project_6_just_stream_it">View Demo</a>
-    ·
-    <a href="https://github.com/Jliezed/oc_project_6_just_stream_it/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/Jliezed/oc_project_6_just_stream_it/issues">Request Feature</a>
-  </p>
+    Movies web application listing top rated movies for different categories (science fiction, animation, comedy). Data retrieve from an
+<a href="https://github.com/OpenClassrooms-Student-Center/OCMovies-API-EN-FR"><small>API.</small></a>
+<br/>
+    </p>
 </div>
-
-
-
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#contact">Contact</a></li>
-  </ol>
-</details>
-
+<img src="https://images.unsplash.com/photo-1615986201152-7686a4867f30?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80" alt="streaming-unspalsh" width="100%"/>
+<a href="https://unsplash.com/fr/photos/PGuCnUzsRSM"><small>By Tech Daily</small></a>
 
 
 <!-- ABOUT THE PROJECT -->
+
 ## About The Project
 
 ### Desktop version
+
 ![Desktop version](assets/oc_project_6_desktop.gif)
 
-
 ### Tablet version
+
 ![Tablet Version](assets/oc_project_6_tablet.gif)
 
-
 ### Mobile Version
+
 ![Mobile Version](assets/oc_project_6_mobile.gif)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 ### Built With
 
@@ -90,6 +62,7 @@
 
 
 <!-- GETTING STARTED -->
+
 ## Getting Started
 
 ### Installation & Running the script
@@ -99,12 +72,13 @@
    git clone https://github.com/Jliezed/oc_project_6_just_stream_it.git
    ```
    ```sh
-   git git clone clone https://github.com/OpenClassrooms-Student-Center/OCMovies-API-EN-FR.git
+   git clone clone https://github.com/OpenClassrooms-Student-Center/OCMovies-API-EN-FR.git
    ```
 2. Place the folder "OCMovies-API-EN-FR" inside "oc_project_6_just_stream_it"
-![Folders Structure](assets/folders_structure.png)
+   ![Folders Structure](assets/folders_structure.png)
 
 #### Create and activate a virtual environment
+
 2. Go to your project directory
    ```sh
    cd ocmovies-api-en
@@ -121,17 +95,23 @@
    ```sh
    source env/bin/activate
    ```
+
 ---
+
 #### Install packages
+
 6. Install the packages using requirements.txt
    ```sh
    pip install -r requirements.txt
    ```
+
 #### Run the program
+
 7. Run the script using the terminal
    ```sh
    python manage.py runserver
    ```
+
 ---
 
 
@@ -140,16 +120,6 @@
 
 
 
-
-
-<!-- CONTACT -->
-## Contact
-
-Jliezed
-
-Project Link: [https://github.com/Jliezed/oc_project_6_just_stream_it](https://github.com/Jliezed/oc_project_6_just_stream_it)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
@@ -158,16 +128,18 @@ Project Link: [https://github.com/Jliezed/oc_project_6_just_stream_it](https://g
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/Jliezed/oc_project_6_just_stream_it.svg?style=for-the-badge
-[contributors-url]: https://github.com/Jliezed/oc_project_6_just_stream_it/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/Jliezed/oc_project_6_just_stream_it.svg?style=for-the-badge
-[forks-url]: https://github.com/Jliezed/oc_project_6_just_stream_it/network/members
-[stars-shield]: https://img.shields.io/github/stars/Jliezed/oc_project_6_just_stream_it.svg?style=for-the-badge
-[stars-url]: https://github.com/Jliezed/oc_project_6_just_stream_it/stargazers
-[issues-shield]: https://img.shields.io/github/issues/Jliezed/oc_project_6_just_stream_it.svg?style=for-the-badge
-[issues-url]: https://github.com/Jliezed/oc_project_6_just_stream_it/issues
-[license-shield]: https://img.shields.io/github/license/Jliezed/oc_project_6_just_stream_it.svg?style=for-the-badge
-[license-url]: https://github.com/Jliezed/oc_project_6_just_stream_it/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/linkedin_username
-[product-screenshot]: images/screenshot.png
+
+[oc-project-shield]: https://img.shields.io/badge/OPENCLASSROOMS-PROJECT-blueviolet?style=for-the-badge
+[oc-project-url]: https://openclassrooms.com/fr/paths/518-developpeur-dapplication-python
+
+[responsive-design-shield]: https://img.shields.io/badge/-RESPONSIVE%20DESIGN-blue?style=for-the-badge
+[responsive-design-url]: https://en.wikipedia.org/wiki/Responsive_web_design
+
+[fetch-api-shield]: https://img.shields.io/badge/-FETCH%20API-blue?style=for-the-badge
+[fetch-api-url]: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+
+[async-await-shield]: https://img.shields.io/badge/-ASYNC%20AWAIT-blue?style=for-the-badge
+[async-await-url]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
+
+[web-development-shield]: https://img.shields.io/badge/-WEB%20DEVELOPMENT-blue?style=for-the-badge
+[web-development-url]: https://en.wikipedia.org/wiki/Web_development
